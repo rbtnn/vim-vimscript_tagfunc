@@ -1,0 +1,1 @@
+# vim-tagfunc-for-vimscript
