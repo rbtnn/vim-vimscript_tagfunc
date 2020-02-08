@@ -7,6 +7,10 @@ let g:loaded_tagfunc_for_vimscript = 1
 
 function! TagfuncForVimscript(pattern, flags, info) abort
     let name = a:pattern
+    if -1 != stridx(name, '#')
+        let path = join((['autoload'] + split(name, '#'))[:-2], '/') .. '.vim'
+        execute printf('runtime %s', escape(path, ' \'))
+    endif
     for cmd in ['function', 'command', 'highlight']
         for line in split(execute(printf('verbose %s %s', cmd, name), 'silent!'), "\n")
             let m = matchlist(line, '^\s*Last set from \(.*\) line \(\d\+\)$')
