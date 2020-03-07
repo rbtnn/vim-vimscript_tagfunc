@@ -1,5 +1,5 @@
 
-# vim-tagfunc-for-vimscript
+# vim-vimscript_tagfunc
 
 ## License
 
