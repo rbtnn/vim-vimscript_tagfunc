@@ -16,12 +16,12 @@ the `&tagfunc` can jump to following:
 function! s:xxx()
 
     call s:yyy() " Typing Ctrl-] on 'yyy',
-                 " you can jump to the define of s:yyy()
-endfunction                                         |
-                                                    |
-~snip~                                              |
-                                                    |
-function! s:foo()              <--------------------+
+                 " you can jump to the definition of s:yyy()
+endfunction                                            |
+                                                       |
+~snip~                                                 |
+                                                       |
+function! s:foo()              <-----------------------+
 ```
 
 ## Installation
