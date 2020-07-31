@@ -10,6 +10,20 @@ The `&tagfunc` can jump to following:
 * user-defined command
 * highlight
 
+## Usage
+
+```
+function! s:xxx()
+
+    call s:yyy() " Typing Ctrl-] on 'yyy',
+                 " you can jump to the definition of s:yyy()
+endfunction                                            |
+                                                       |
+~snip~                                                 |
+                                                       |
+function! s:foo()              <-----------------------+
+```
+
 ## Installation
 
 This is an example of installation using [vim-plug](https://github.com/junegunn/vim-plug).
