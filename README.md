@@ -1,5 +1,22 @@
 
-# vim-vimscript_tagfunc
+# vim-vimscript\_tagfunc
+
+This plugin provides to set `&tagfunc` for Vim script.
+the `&tagfunc` can jump to following:
+
+* script function
+* autoload function
+* global function
+* user-defined command
+* highlight
+
+## Installation
+
+This is an example of installation using [vim-plug](https://github.com/junegunn/vim-plug).
+
+```
+Plug 'rbtnn/vim-vimscript_tagfunc'
+```
 
 ## License
 
