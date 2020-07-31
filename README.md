@@ -1,8 +1,8 @@
 
 # vim-vimscript\_tagfunc
 
-This plugin provides to set `&tagfunc` for Vim script.
-the `&tagfunc` can jump to following:
+This plugin supports Vim and Neovim and provides to set `&tagfunc` for Vim script.
+The `&tagfunc` can jump to following:
 
 * script function
 * autoload function

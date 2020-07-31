@@ -1,4 +1,6 @@
 
+scriptencoding utf-8
+
 if !exists('&tagfunc')
     finish
 endif
@@ -13,15 +15,18 @@ function! TagfuncForVimscript(pattern, flags, info) abort
     endif
     for cmd in ['function ', printf('function <SNR>%s_', s:get_curr_scriptid()), 'command ', 'highlight ']
         for line in split(execute(printf('verbose %s%s', cmd, name), 'silent!'), "\n")
-            let m = matchlist(line, '^\s*Last set from \(.*\) line \(\d\+\)$')
-            if !empty(m)
-                let val = {
-                    \   'name' : name,
-                    \   'filename' : fnamemodify(m[1], ':p'),
-                    \   'cmd' : m[2],
-                    \ }
-                return [val]
-            endif
+            let m_en = matchlist(line, '^\s*Last set from \(.*\) line \(\d\+\)$')
+            let m_jp = matchlist(line, '^\s*最後にセットしたスクリプト: \(.*\) line \(\d\+\)$')
+            for m in [m_en, m_jp]
+                if !empty(m)
+                    let val = {
+                        \   'name' : name,
+                        \   'filename' : fnamemodify(m[1], ':p'),
+                        \   'cmd' : m[2],
+                        \ }
+                    return [val]
+                endif
+            endfor
         endfor
     endfor
     return taglist(a:pattern)
