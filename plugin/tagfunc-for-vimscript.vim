@@ -8,7 +8,7 @@ endif
 let g:loaded_tagfunc_for_vimscript = 1
 
 function! TagfuncForVimscript(pattern, flags, info) abort
-    let name = a:pattern
+    let name = get(split(a:pattern, ':'), -1, '')
     if -1 != stridx(name, '#')
         let path = join((['autoload'] + split(name, '#'))[:-2], '/') .. '.vim'
         execute printf('runtime %s', escape(path, ' \'))
