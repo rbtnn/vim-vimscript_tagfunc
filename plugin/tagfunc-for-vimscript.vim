@@ -16,7 +16,7 @@ function! TagfuncForVimscript(pattern, flags, info) abort
     for cmd in ['function ', printf('function <SNR>%s_', s:get_curr_scriptid()), 'command ', 'highlight ']
         for line in split(execute(printf('verbose %s%s', cmd, name), 'silent!'), "\n")
             let m_en = matchlist(line, '^\s*Last set from \(.*\) line \(\d\+\)$')
-            let m_jp = matchlist(line, '^\s*最後にセットしたスクリプト: \(.*\) line \(\d\+\)$')
+            let m_jp = matchlist(line, '^\s*最後にセットしたスクリプト: \(.*\) \%(line\|行\) \(\d\+\)$')
             for m in [m_en, m_jp]
                 if !empty(m)
                     let val = {
