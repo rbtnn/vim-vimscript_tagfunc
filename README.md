@@ -21,7 +21,7 @@ endfunction                                            |
                                                        |
 ~snip~                                                 |
                                                        |
-function! s:foo()              <-----------------------+
+function! s:yyy()              <-----------------------+
 ```
 
 ## Installation
