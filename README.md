@@ -9,6 +9,7 @@ The `&tagfunc` can jump to following:
 * global function
 * user-defined command
 * highlight
+* export def or const (Vim9 script only)
 
 ## Usage
 
@@ -24,6 +25,23 @@ endfunction                                            |
 function! s:yyy()              <-----------------------+
 ```
 
+```
+import * as X from './x.vim'
+
+~snip~
+
+def s:main()
+    var v = X.Get() # Typing Ctrl-] on 'X.Get',
+                    # you can jump to the definition of 'export def Get' or 'export const Get'
+endfunction                                                    |
+                                                               |
+                                                               |
+                                                               |
+# ./x.vim                                                      |
+                                                               |
+export def Get()              <--------------------------------+
+```
+
 ## Installation
 
 This is an example of installation using [vim-plug](https://github.com/junegunn/vim-plug).
@@ -35,3 +53,4 @@ Plug 'rbtnn/vim-vimscript_tagfunc'
 ## License
 
 Distributed under MIT License. See LICENSE.
+
